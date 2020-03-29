@@ -249,7 +249,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85511dbd0d40f74a87e3b8b19dba24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 5
   proteinCurrency: 0
   size: 0
 --- !u!4 &1122471219
@@ -291,8 +290,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0a82024f8521d94b9fee03b3ddd20bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Tag: Protein
-  Increase: 0
 --- !u!135 &1122471222
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -317,6 +314,7 @@ GameObject:
   - component: {fileID: 1130566748}
   - component: {fileID: 1130566747}
   - component: {fileID: 1130566746}
+  - component: {fileID: 1130566749}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -355,7 +353,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: -1000
   far clip plane: 1000
   field of view: 60
   orthographic: 1
@@ -389,6 +387,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1130566749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130566745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce50088989ac24478529c7c923f375b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1122471219}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &2085716025
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,4 +458,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 034fe03d47fd8a446b829bec70daa0d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnSpeed: 0.5
