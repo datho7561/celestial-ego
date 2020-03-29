@@ -123,3 +123,6 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# Ignore workspace specific vscode files
+**/.vscode/**
