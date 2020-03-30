@@ -5,11 +5,21 @@ using UnityEngine;
 public class PlayerCellularOrganism : MonoBehaviour
 {
     private float Speed = 10.0f;
-    public float proteinCurrency;
+    private int proteinCurrency;
     public float size;
+
+    void Update() { 
+        proteinCurrency = GetComponent<PlayerCellController>().getMoney();
+
+    }
 
     public float getSpeed() {
         return Speed;
+    }
+
+    
+    public int getProteinCurrency() {
+        return proteinCurrency;
     }
 
 }
