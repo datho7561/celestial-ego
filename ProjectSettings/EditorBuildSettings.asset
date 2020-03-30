@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 44a2bc8381ba0004fa0147077006bd1e
+  - enabled: 1
+    path: Assets/Prefabs/CelestialEgo.unity
+    guid: ae084f90a8a2335b9918da7c318900af
   m_configObjects: {}
