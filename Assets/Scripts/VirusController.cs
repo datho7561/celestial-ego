@@ -4,49 +4,53 @@ using UnityEngine;
 
 public class VirusController : MonoBehaviour
 {
+    public float Speed;
+    public float Size;
+    public float Damage;
+    public GameObject Target;
+    public float TargettingTime;
+    public float AttackingTime;
+    public Rigidbody2D rb;
 
-    // This is the GameObject that the Virus will attack
-    public GameObject TargetCellularOrganism;
-    // This is how long the Virus will take to find its target
-    public float TimeToFindTarget;
-    // This is how long the virus will move towards the player for when attacking
-    public float TimeToAttackTarget;
-    // Instance of Virus that this is controlling
-    public Virus ControlledVirus;
-
-    // Represents if the player is currently attacking a target
-    private bool Attacking;
-    private float TimeAttackingOrAcquiring;
+    private float TimeElapsed;
+    private bool attacking;
+    private Vector2 movement;
 
     // Start is called before the first frame update
     void Start()
     {
-        Attacking = false;       
-        TimeAttackingOrAcquiring = 0;
+        attacking = false;
+        TimeElapsed = 0.0f;
     }
 
-    // Update is called once per frame
+    // Called every frame to handle the "AI"
     void Update()
     {
-        // update the counter
-        TimeAttackingOrAcquiring += Time.deltaTime;
-        if (Attacking) {
-            if (TimeAttackingOrAcquiring > TimeToAttackTarget) {
-                TimeAttackingOrAcquiring = 0;
-                Attacking = false;
+        TimeElapsed += Time.deltaTime;
+        if (attacking) {
+            if (TimeElapsed > AttackingTime) {
+                TimeElapsed = 0;
+                attacking = false;
             }
-            // When attacking, move in the direction the virus is facing
-            // https://stackoverflow.com/questions/39809617/move-an-object-in-the-direction-it-is-facing-c-sharp#39809858
-            transform.position += transform.forward * Time.deltaTime * ControlledVirus.Speed;
         } else {
-            if (TimeAttackingOrAcquiring > TimeToAttackTarget) {
-                TimeAttackingOrAcquiring = 0;
-                Attacking = false;
+            if (TimeElapsed > TargettingTime) {
+                TimeElapsed = 0;
+                attacking = true;
             }
-            // If acquiring target, rotate to face the player
-            transform.forward = new Vector3(
-                transform.position.x - TargetCellularOrganism.transform.position.x,
-                transform.position.y - TargetCellularOrganism.transform.position.y, 0).normalized;
         }
+    }
+
+    // For applying movement to the rigidbody
+    void FixedUpdate() {
+        Vector2 targetLoc = new Vector2(Target.transform.position.x, Target.transform.position.y);
+        Debug.Log(targetLoc);
+        rb.MovePosition(rb.position + targetLoc * Speed * Time.fixedDeltaTime);
+        // if (attacking) {
+        //     rb.MovePosition(rb.position + targetLoc * Speed * Time.fixedDeltaTime);
+        // } else {
+        //     Vector2 lookPosition = targetLoc - rb.position;
+        //     float angle = Mathf.Atan2(lookPosition.y, lookPosition.x) * Mathf.Rad2Deg - 90.0f;
+        //     rb.rotation = angle;
+        // }
     }
 }
