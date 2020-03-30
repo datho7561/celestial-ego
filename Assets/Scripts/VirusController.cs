@@ -7,9 +7,9 @@ public class VirusController : MonoBehaviour
     public float Speed;
     public float Size;
     public float Damage;
-    public GameObject Target;
     public float TargettingTime;
     public float AttackingTime;
+    public GameObject Target;
     public Rigidbody2D rb;
 
     private float TimeElapsed;
@@ -26,6 +26,7 @@ public class VirusController : MonoBehaviour
     // Called every frame to handle the "AI"
     void Update()
     {
+        if (Target)
         TimeElapsed += Time.deltaTime;
         if (attacking) {
             if (TimeElapsed > AttackingTime) {
@@ -42,15 +43,16 @@ public class VirusController : MonoBehaviour
 
     // For applying movement to the rigidbody
     void FixedUpdate() {
-        Vector2 targetLoc = new Vector2(Target.transform.position.x, Target.transform.position.y);
-        Debug.Log(targetLoc);
-        rb.MovePosition(rb.position + targetLoc * Speed * Time.fixedDeltaTime);
-        // if (attacking) {
-        //     rb.MovePosition(rb.position + targetLoc * Speed * Time.fixedDeltaTime);
-        // } else {
-        //     Vector2 lookPosition = targetLoc - rb.position;
-        //     float angle = Mathf.Atan2(lookPosition.y, lookPosition.x) * Mathf.Rad2Deg - 90.0f;
-        //     rb.rotation = angle;
-        // }
+        if (Target != null) {
+            Vector2 targetLoc = new Vector2(Target.transform.position.x, Target.transform.position.y);
+            Vector2 lookPosition = (targetLoc - rb.position).normalized;
+            if (attacking) {
+                Vector2 moveDir = new Vector2(Mathf.Cos((rb.rotation + 90.0f) * Mathf.Deg2Rad), Mathf.Sin((rb.rotation + 90.0f) * Mathf.Deg2Rad)).normalized;
+                rb.MovePosition(rb.position + moveDir * Speed * Time.fixedDeltaTime);
+            } else {
+                float angle = Mathf.Atan2(lookPosition.y, lookPosition.x) * Mathf.Rad2Deg - 90.0f;
+                rb.rotation = angle;
+            }
+        }
     }
 }
