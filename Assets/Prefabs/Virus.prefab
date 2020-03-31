@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4319673318660773538}
   - component: {fileID: 4319673318660773536}
   - component: {fileID: 4319673318660773543}
+  - component: {fileID: 3014433537762932910}
   m_Layer: 0
   m_Name: Virus
   m_TagString: Untagged
@@ -124,3 +125,19 @@ MonoBehaviour:
   AttackingTime: 1.07
   Target: {fileID: 4589247634975480531, guid: 9c0afab0c506f774ba6dd767f71cc1e4, type: 3}
   rb: {fileID: 4319673318660773536}
+--- !u!70 &3014433537762932910
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4319673318660773539}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.027428716, y: 0.11885774}
+  m_Size: {x: 0.4754238, y: 0.8228545}
+  m_Direction: 0
