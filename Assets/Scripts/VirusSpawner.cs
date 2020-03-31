@@ -22,9 +22,9 @@ public class VirusSpawner : MonoBehaviour
                 Target = candidateTargets[0];
             }
         } else {
-            int x = Random.Range(0, Camera.main.pixelWidth);
-            int y = Random.Range(0, Camera.main.pixelHeight);
-            Vector3 Position = Camera.main.ScreenToWorldPoint(new Vector3(x, y, 0));
+            int x = Random.Range(-50, 50);
+            int y = Random.Range(-50, 50);
+            Vector3 Position = new Vector3(x, y, 0);
             Position.z = 0;
             GameObject vir = Instantiate(Virus, Position, Quaternion.identity);
             Virus3DController virusController = vir.GetComponent<Virus3DController>();

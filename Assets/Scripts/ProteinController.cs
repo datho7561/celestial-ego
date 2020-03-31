@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ProteinController : MonoBehaviour
 {
-    private float spawnSpeed = 0.5f;
+    private float spawnSpeed = 0.3f;
 
     void Start() {
         InvokeRepeating("Generate", 0, spawnSpeed);
@@ -12,10 +12,9 @@ public class ProteinController : MonoBehaviour
 
     void Generate()
     {
-        int x = Random.Range(0, Camera.main.pixelWidth);
-        int y = Random.Range(0, Camera.main.pixelHeight);
-        Vector3 Position = Camera.main.ScreenToWorldPoint(new Vector3(x, y, 0));
-        Position.z = 0;
+        int x = Random.Range(-50, 50);
+        int y = Random.Range(-50, 50);
+        Vector3 Position = new Vector3(x, y, 0);
         Instantiate(GetComponent<ProteinPointBlob>().getProtein(), Position, Quaternion.identity);
     }
 }
