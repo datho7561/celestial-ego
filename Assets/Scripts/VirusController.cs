@@ -5,6 +5,7 @@ using UnityEngine;
 public class VirusController : MonoBehaviour
 {
     public float Speed;
+    public float RotSpeed;
     public float Size;
     public float Damage;
     public float TargettingTime;
@@ -50,8 +51,9 @@ public class VirusController : MonoBehaviour
                 Vector2 moveDir = new Vector2(Mathf.Cos((rb.rotation + 90.0f) * Mathf.Deg2Rad), Mathf.Sin((rb.rotation + 90.0f) * Mathf.Deg2Rad)).normalized;
                 rb.MovePosition(rb.position + moveDir * Speed * Time.fixedDeltaTime);
             } else {
-                float angle = Mathf.Atan2(lookPosition.y, lookPosition.x) * Mathf.Rad2Deg - 90.0f;
-                rb.rotation = angle;
+                float targetAngle = Mathf.Atan2(lookPosition.y, lookPosition.x) * Mathf.Rad2Deg - 90.0f;
+                float deltaAngle = System.Math.Sign(targetAngle - rb.rotation) * System.Math.Min(System.Math.Abs(targetAngle - rb.rotation), System.Math.Abs(RotSpeed * Time.fixedDeltaTime));
+                rb.rotation += deltaAngle;
             }
         }
     }

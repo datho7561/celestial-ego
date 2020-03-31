@@ -43,6 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c67282b54c75d1a79cd4d6f8a9d3717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnSpeed: 6.24
+  SpawnSpeed: 8.09
   TargetTag: Player
   Virus: {fileID: 4319673318660773539, guid: a394aa890351dac71836a75ab9bc6d95, type: 3}

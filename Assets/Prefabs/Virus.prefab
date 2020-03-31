@@ -116,10 +116,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6928bbd9ddc4274209b1c1685527f463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 6.1
+  Speed: 20.09
+  RotSpeed: 40.4
   Size: 0
   Damage: 0
-  TargettingTime: 1.16
-  AttackingTime: 2.11
+  TargettingTime: 3.18
+  AttackingTime: 1.07
   Target: {fileID: 4589247634975480531, guid: 9c0afab0c506f774ba6dd767f71cc1e4, type: 3}
   rb: {fileID: 4319673318660773536}
