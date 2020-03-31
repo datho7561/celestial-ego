@@ -61,10 +61,13 @@ public class Virus3DController : MonoBehaviour
                 if (currentAngle > targetAngle) {
                     deltaAngle = -(currentAngle - targetAngle);
                     if (deltaAngle < -180) {
-                        deltaAngle = 360 - deltaAngle;
+                        deltaAngle = 360 + deltaAngle;
                     }
                 } else {
-                    deltaAngle = targetAngle;
+                    deltaAngle = targetAngle - currentAngle;
+                    if (deltaAngle > 180) {
+                        deltaAngle = 360 - deltaAngle;
+                    }
                 }
                 deltaAngle = Mathf.Clamp(deltaAngle, - RotSpeed * Time.fixedDeltaTime, RotSpeed * Time.fixedDeltaTime);
                 Quaternion deltaRotation = Quaternion.Euler(new Vector3(0, 0, deltaAngle));
