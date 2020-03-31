@@ -27,7 +27,7 @@ public class VirusSpawner : MonoBehaviour
             Vector3 Position = Camera.main.ScreenToWorldPoint(new Vector3(x, y, 0));
             Position.z = 0;
             GameObject vir = Instantiate(Virus, Position, Quaternion.identity);
-            VirusController virusController = vir.GetComponent<VirusController>();
+            Virus3DController virusController = vir.GetComponent<Virus3DController>();
             virusController.Target = Target;
         }
     }

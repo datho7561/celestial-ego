@@ -249,7 +249,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85511dbd0d40f74a87e3b8b19dba24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  proteinCurrency: 0
   size: 0
 --- !u!4 &1122471219
 Transform:
@@ -290,6 +289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0a82024f8521d94b9fee03b3ddd20bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Letters: {fileID: 0}
 --- !u!135 &1122471222
 SphereCollider:
   m_ObjectHideFlags: 0

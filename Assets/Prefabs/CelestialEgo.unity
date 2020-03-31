@@ -128,6 +128,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3129158556895876082, guid: ff2f479c45ffd2bdf833cc6b7eebf01e,
+        type: 3}
+      propertyPath: Virus
+      value: 
+      objectReference: {fileID: 3964516818814276495, guid: 4688d04f6cdc3955a9ef40f5a03aa3e6,
+        type: 3}
     - target: {fileID: 3129158556895876083, guid: ff2f479c45ffd2bdf833cc6b7eebf01e,
         type: 3}
       propertyPath: m_LocalPosition.x
