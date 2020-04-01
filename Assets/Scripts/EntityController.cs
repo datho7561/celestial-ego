@@ -7,6 +7,7 @@ public class EntityController : MonoBehaviour
 {
     private string Tag = "Protein";
     private string virusTag = "Virus";
+    private string otherCellTag = "OtherCell";
     private float Increase = 0.1f;
     private float Decrease = 1.0f;
     public Text Letters;
@@ -29,6 +30,18 @@ public class EntityController : MonoBehaviour
         {
             transform.localScale -= new Vector3(Decrease, Decrease, Decrease);
             Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.tag == otherCellTag)
+        {
+            AICell otherData = other.GetComponent<AICell>();
+            if (other.transform.localScale.x > transform.localScale.x) {
+                // TODO: end the game; you have got eated
+            } else {
+                Score += otherData.Points;
+                transform.localScale += new Vector3(Increase, Increase, Increase);
+                Destroy(other.gameObject);
+            }
         }
     }
 }
