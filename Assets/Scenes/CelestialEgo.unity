@@ -405,72 +405,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 368446934}
   m_CullTransparentMesh: 0
---- !u!1 &389168356
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 389168357}
-  - component: {fileID: 389168359}
-  - component: {fileID: 389168358}
-  m_Layer: 5
-  m_Name: EventSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &389168357
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 389168356}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 532.5, y: 299.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &389168358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 389168356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
---- !u!114 &389168359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 389168356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
 --- !u!1 &412415095
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,6 +789,75 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4589247636097488866}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1482080608
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2150227015827819922, guid: db84ea978c9313c43914ec1a8f35888c,
+        type: 3}
+      propertyPath: m_Name
+      value: EventSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 2150227015827819935, guid: db84ea978c9313c43914ec1a8f35888c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2150227015827819935, guid: db84ea978c9313c43914ec1a8f35888c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2150227015827819935, guid: db84ea978c9313c43914ec1a8f35888c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2150227015827819935, guid: db84ea978c9313c43914ec1a8f35888c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2150227015827819935, guid: db84ea978c9313c43914ec1a8f35888c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2150227015827819935, guid: db84ea978c9313c43914ec1a8f35888c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2150227015827819935, guid: db84ea978c9313c43914ec1a8f35888c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2150227015827819935, guid: db84ea978c9313c43914ec1a8f35888c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2150227015827819935, guid: db84ea978c9313c43914ec1a8f35888c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2150227015827819935, guid: db84ea978c9313c43914ec1a8f35888c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2150227015827819935, guid: db84ea978c9313c43914ec1a8f35888c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: db84ea978c9313c43914ec1a8f35888c, type: 3}
 --- !u!1 &1498495571 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4589247634975480531, guid: 9c0afab0c506f774ba6dd767f71cc1e4,
@@ -968,6 +971,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6600650558546786290, guid: 5a97642193a14f244ac86579ad214a17,
+        type: 3}
+      propertyPath: ImmunityBooster
+      value: 
+      objectReference: {fileID: 4610499579293180839, guid: 69ead1ec2df7dd345b5b566be3cba7bf,
+        type: 3}
     - target: {fileID: 7814608321530633036, guid: 5a97642193a14f244ac86579ad214a17,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1006,7 +1015,7 @@ PrefabInstance:
     - target: {fileID: 7814608321530633036, guid: 5a97642193a14f244ac86579ad214a17,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7814608321530633036, guid: 5a97642193a14f244ac86579ad214a17,
         type: 3}
@@ -1358,7 +1367,7 @@ PrefabInstance:
     - target: {fileID: 2708613021425759653, guid: 14f72abcf50d9f4b79abb9861a7fc843,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2708613021425759653, guid: 14f72abcf50d9f4b79abb9861a7fc843,
         type: 3}
