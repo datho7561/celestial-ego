@@ -8,6 +8,7 @@ public class EntityController : MonoBehaviour
     private string Tag = "Protein";
     private string virusTag = "Virus";
     private string otherCellTag = "OtherCell";
+    private string speedTag = "SpeedBoost";
     private float Increase = 0.1f;
     private float Decrease = 1.0f;
     public Text Letters;
@@ -42,6 +43,20 @@ public class EntityController : MonoBehaviour
                 transform.localScale += new Vector3(Increase, Increase, Increase);
                 Destroy(other.gameObject);
             }
+        }
+
+        if (other.gameObject.tag == speedTag)
+        {
+            StartCoroutine(powerUpTimer(other)); 
+        }
+    }
+
+    IEnumerator powerUpTimer(Collider player) {
+        if (player.gameObject.tag == speedTag) {
+            GetComponent<PlayerCellularOrganism>().setSpeed(GetComponent<PlayerCellularOrganism>().getSpeed() * 3f);
+            Destroy(player.gameObject);
+            yield return new WaitForSeconds(15f);
+            GetComponent<PlayerCellularOrganism>().setSpeed(GetComponent<PlayerCellularOrganism>().getSpeed() / 3f);
         }
     }
 }
