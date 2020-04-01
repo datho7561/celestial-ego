@@ -9,6 +9,7 @@ TagManager:
   - Virus
   - OtherCell
   - SpeedBoost
+  - ImmunityBoost
   layers:
   - Default
   - TransparentFX
