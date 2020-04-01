@@ -10,7 +10,6 @@ public class PlayerCellularOrganism : MonoBehaviour
 
     void Update() { 
         proteinCurrency = GetComponent<PlayerCellController>().getMoney();
-
     }
 
     public float getSpeed() {
@@ -20,6 +19,10 @@ public class PlayerCellularOrganism : MonoBehaviour
     
     public int getProteinCurrency() {
         return proteinCurrency;
+    }
+
+    public void setSpeed(float speed) {
+        this.Speed = speed;
     }
 
 }
