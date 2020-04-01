@@ -9,8 +9,9 @@ public class EntityController : MonoBehaviour
     private string virusTag = "Virus";
     private string otherCellTag = "OtherCell";
     private string speedTag = "SpeedBoost";
+    private string immunityTag = "ImmunityBoost";
     private float Increase = 0.1f;
-    private float Decrease = 1.0f;
+    private float Decrease = 0.5f;
     public Text Letters;
 
     private int Score = 0;
@@ -47,16 +48,30 @@ public class EntityController : MonoBehaviour
 
         if (other.gameObject.tag == speedTag)
         {
-            StartCoroutine(powerUpTimer(other)); 
+            StartCoroutine(powerUpSpeedTimer(other)); 
+        }
+
+        if (other.gameObject.tag == immunityTag)
+        {
+            StartCoroutine(powerUpImmunityTimer(other));
         }
     }
 
-    IEnumerator powerUpTimer(Collider player) {
-        if (player.gameObject.tag == speedTag) {
+    IEnumerator powerUpSpeedTimer(Collider player) {
             GetComponent<PlayerCellularOrganism>().setSpeed(GetComponent<PlayerCellularOrganism>().getSpeed() * 3f);
             Destroy(player.gameObject);
             yield return new WaitForSeconds(15f);
             GetComponent<PlayerCellularOrganism>().setSpeed(GetComponent<PlayerCellularOrganism>().getSpeed() / 3f);
-        }
+      
     }
+
+    IEnumerator powerUpImmunityTimer(Collider player)
+    {
+        this.Decrease = 0f;
+        Destroy(player.gameObject);
+        yield return new WaitForSeconds(15f);
+        this.Decrease = 0.5f;
+    }
+
+
 }
