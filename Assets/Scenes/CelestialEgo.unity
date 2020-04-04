@@ -3502,6 +3502,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: GridBackground
       objectReference: {fileID: 0}
+    - target: {fileID: 3999937677567817605, guid: 3b6bf061b63c91444849013e8ebec4bf,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -646800879
+      objectReference: {fileID: 0}
+    - target: {fileID: 3999937677567817605, guid: 3b6bf061b63c91444849013e8ebec4bf,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 3999937677567817606, guid: 3b6bf061b63c91444849013e8ebec4bf,
         type: 3}
       propertyPath: m_LocalPosition.x
