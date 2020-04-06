@@ -19,6 +19,9 @@ public class PlayerCellController : MonoBehaviour
         if (transform.localScale.x <= 0.3 || transform.localScale.x > 25) {
             StartCoroutine(cellDeath());
         }
+        if (Random.value < 0.01) {
+            transform.localScale -= new Vector3(0.01f * Time.deltaTime, 0.01f * Time.deltaTime, 0.01f * Time.deltaTime);
+        }
     }
 
     public int getMoney() {
