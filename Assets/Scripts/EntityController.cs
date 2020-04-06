@@ -38,7 +38,7 @@ public class EntityController : MonoBehaviour
         {
             AICell otherData = other.GetComponent<AICell>();
             if (other.transform.localScale.x > transform.localScale.x) {
-                // TODO: end the game; you have got eated
+                transform.localScale = new Vector3(0.0f, 0.0f, 0.0f);
             } else {
                 Score += otherData.Points;
                 transform.localScale += new Vector3(Increase, Increase, Increase);
