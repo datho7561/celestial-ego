@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BoosterSpawner : MonoBehaviour
 {
-    private float spawnSpeed = 10f;
+    private float spawnSpeed = 20f;
 
     void Start()
     {
