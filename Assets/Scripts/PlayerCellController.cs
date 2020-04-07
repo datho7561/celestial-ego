@@ -8,6 +8,7 @@ public class PlayerCellController : MonoBehaviour
 {
     private int proteinMoney;
     public Text deathMessage;
+    public Image deathOverlay;
 
     private readonly float WorldSize = 100;
 
@@ -39,6 +40,8 @@ public class PlayerCellController : MonoBehaviour
     IEnumerator cellDeath()
     {
         deathMessage.text = "Game Over !\n CO Dead. Too Small or Big\n Returning to Main Screen";
+        deathOverlay.enabled = true;
+
         yield return new WaitForSeconds(5f);
         SceneManager.LoadScene(0);
     }
