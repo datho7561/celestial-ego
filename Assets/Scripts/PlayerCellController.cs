@@ -17,7 +17,7 @@ public class PlayerCellController : MonoBehaviour
         Position.z = transform.position.z;
         transform.position = ClampWorld(Vector3.MoveTowards(transform.position, Position, GetComponent<PlayerCellularOrganism>().getSpeed() * Time.deltaTime));
         proteinMoney = GetComponent<EntityController>().getScore();
-        if (transform.localScale.x <= 0.3 || transform.localScale.x > 150) {
+        if (transform.localScale.x <= 0.3 || transform.localScale.x > 25) {
             StartCoroutine(cellDeath());
         }
         if (Random.value < 0.01) {
