@@ -16,5 +16,31 @@ public class ShopMenu : MonoBehaviour
 
     }
 
+    public void SpeedUp()
+    {
+        if (GameObject.Find("PlayerCellGraphics").GetComponent<EntityController>().getScore() >= 10)
+        {
+            GameObject.Find("PlayerCellGraphics").GetComponent<EntityController>().reduceScore(10); 
+            GameObject.Find("PlayerCellGraphics").GetComponent<PlayerCellularOrganism>().setSpeed(GameObject.Find("PlayerCellGraphics").GetComponent<PlayerCellularOrganism>().getSpeed() * 1.2f);
+        }
+    }
+
+    public void ResistanceUp()
+    {
+        if (GameObject.Find("PlayerCellGraphics").GetComponent<EntityController>().getScore() >= 10)
+        {
+            GameObject.Find("PlayerCellGraphics").GetComponent<EntityController>().reduceScore(10);
+        }
+    }
+
+    public void ImmunityUp()
+    {
+        if (GameObject.Find("PlayerCellGraphics").GetComponent<EntityController>().getScore() >= 10)
+        {
+            GameObject.Find("PlayerCellGraphics").GetComponent<EntityController>().reduceScore(10);
+            GameObject.Find("PlayerCellGraphics").GetComponent<EntityController>().IncreaseImmunity();
+        }
+    }
+
 
 }

@@ -13,11 +13,30 @@ public class EntityController : MonoBehaviour
     private float Increase = 0.1f;
     private float Decrease = 0.5f;
     public Text Letters;
+    public Text ImmunityNumber;
 
     private int Score = 0;
+    private int ImmunityNum = 0;
 
     public int getScore() {
         return Score;
+    }
+
+    public int getImmunity()
+    {
+        return ImmunityNum;
+    }
+
+    public void reduceScore(int point)
+    {
+        Score -= point;
+        Letters.text = "Protein Currency: " + Score;
+    }
+
+    public void IncreaseImmunity()
+    {
+        ImmunityNum += 1;
+        ImmunityNumber.text = "Immunity: " + ImmunityNum;
     }
 
     void OnTriggerEnter(Collider other) {
@@ -30,7 +49,15 @@ public class EntityController : MonoBehaviour
 
         if (other.gameObject.tag == virusTag)
         {
-            transform.localScale -= new Vector3(Decrease, Decrease, Decrease);
+            if (ImmunityNum == 0)
+            {
+                transform.localScale -= new Vector3(Decrease, Decrease, Decrease);
+            }
+            else
+            {
+                ImmunityNum -= 1;
+                ImmunityNumber.text = "Immunity: " + ImmunityNum;
+            }
             Destroy(other.gameObject);
         }
 
