@@ -5,13 +5,14 @@ using UnityEngine.UI;
 
 public class EntityController : MonoBehaviour
 {
-    private string Tag = "Protein";
+    private string proteinTag = "Protein";
     private string virusTag = "Virus";
     private string otherCellTag = "OtherCell";
     private string speedTag = "SpeedBoost";
     private string immunityTag = "ImmunityBoost";
     private float Increase = 0.1f;
     private float Decrease = 0.5f;
+    private float CameraScale = 5f;
     public Text Letters;
     public Text ImmunityNumber;
 
@@ -40,11 +41,12 @@ public class EntityController : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider other) {
-        if (other.gameObject.tag == Tag) {
+        if (other.gameObject.tag == proteinTag) {
             transform.localScale += new Vector3(Increase, Increase, Increase);
             Destroy(other.gameObject);
             Score += GetComponent<ProteinPointBlob>().getProteinValue();
             Letters.text = "Protein Currency: " + Score;
+            Camera.main.orthographicSize += CameraScale*Increase;
         }
 
         if (other.gameObject.tag == virusTag)
@@ -52,6 +54,7 @@ public class EntityController : MonoBehaviour
             if (ImmunityNum == 0)
             {
                 transform.localScale -= new Vector3(Decrease, Decrease, Decrease);
+                Camera.main.orthographicSize -= CameraScale*Decrease;
             }
             else
             {
@@ -68,7 +71,9 @@ public class EntityController : MonoBehaviour
                 transform.localScale = new Vector3(0.0f, 0.0f, 0.0f);
             } else {
                 Score += otherData.Points;
-                transform.localScale += new Vector3(Increase, Increase, Increase);
+                //transform.localScale += new Vector3(Increase, Increase, Increase);
+                transform.localScale += new Vector3(Mathf.Pow(other.transform.localScale.x,1/3f), Mathf.Pow(other.transform.localScale.y, 1 / 3f), Mathf.Pow(other.transform.localScale.z, 1 / 3f));
+                Camera.main.orthographicSize += CameraScale*Increase;
                 Destroy(other.gameObject);
             }
         }
