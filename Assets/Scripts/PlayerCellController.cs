@@ -20,7 +20,7 @@ public class PlayerCellController : MonoBehaviour
             StartCoroutine(cellDeath());
         }
         if (Random.value < 0.01) {
-            transform.localScale -= new Vector3(0.01f * Time.deltaTime, 0.01f * Time.deltaTime, 0.01f * Time.deltaTime);
+            transform.localScale -= new Vector3(1f * Time.deltaTime, 1f * Time.deltaTime, 1f * Time.deltaTime);
         }
     }
 
