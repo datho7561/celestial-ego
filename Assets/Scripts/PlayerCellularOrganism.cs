@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerCellularOrganism : MonoBehaviour
 {
-    private float Speed = 10.0f;
+    private float Speed = 7.0f;
     private int proteinCurrency;
     public float size;
 
