@@ -21,7 +21,9 @@ public class PlayerCellController : MonoBehaviour
             StartCoroutine(cellDeath());
         }
         if (Random.value < 0.01) {
-            transform.localScale -= new Vector3(1f * Time.deltaTime, 1f * Time.deltaTime, 1f * Time.deltaTime);
+            float time = Time.deltaTime;
+            transform.localScale -= new Vector3(1f * time, 1f * time, 1f * time);
+            Camera.main.orthographicSize -= time;
         }
     }
 

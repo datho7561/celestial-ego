@@ -12,7 +12,7 @@ public class EntityController : MonoBehaviour
     private string immunityTag = "ImmunityBoost";
     private float Increase = 0.1f;
     private float Decrease = 0.5f;
-    private float CameraScale = 5f;
+    private float CameraScale = 1f;
     public Text Letters;
     public Text ImmunityNumber;
 
