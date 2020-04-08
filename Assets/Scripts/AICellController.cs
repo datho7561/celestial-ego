@@ -39,6 +39,15 @@ public class AICellController : MonoBehaviour
             Mathf.Cos(rb.rotation.eulerAngles.z * Mathf.Deg2Rad),
             0
         ).normalized;
-        rb.MovePosition(rb.position + moveDir * Cell.Speed * Time.fixedDeltaTime);
+        rb.MovePosition(ClampWorld(rb.position + moveDir * Cell.Speed * Time.fixedDeltaTime));
+    }
+
+
+    private Vector3 ClampWorld(Vector3 original)
+    {
+        Vector3 copy = new Vector3(original.x, original.y, original.z);
+        copy.x = copy.x < -100 ? 100 : copy.x > 100 ? -100 : copy.x;
+        copy.y = copy.y < -100 ? 100 : copy.y > 100 ? -100 : copy.y;
+        return copy;
     }
 }

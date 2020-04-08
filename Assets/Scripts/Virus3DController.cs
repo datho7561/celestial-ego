@@ -54,7 +54,7 @@ public class Virus3DController : MonoBehaviour
                     Mathf.Sin((currentAngle + 90.0f) * Mathf.Deg2Rad),
                     0
                 ).normalized;
-                rb.MovePosition(rb.position + moveDir * Speed * Time.fixedDeltaTime);
+                rb.MovePosition(ClampWorld(rb.position + moveDir * Speed * Time.fixedDeltaTime));
             } else {
                 float targetAngle = Mathf.Atan2(lookPosition.y, lookPosition.x) * Mathf.Rad2Deg - 90.0f;
                 float deltaAngle;
@@ -74,5 +74,17 @@ public class Virus3DController : MonoBehaviour
                 rb.rotation = rb.rotation * deltaRotation;
             }
         }
+    }
+
+    private Vector3 ClampWorld(Vector3 original)
+    {
+        Vector3 copy = new Vector3(original.x, original.y, original.z);
+        copy.x = copy.x < -100 ? 100 : copy.x > 100 ? -100 : copy.x;
+        copy.y = copy.y < -100 ? 100 : copy.y > 100 ? -100 : copy.y;
+        return copy;
+        // return new Vector3(
+        //     Mathf.Clamp(original.x, -WorldSize, WorldSize),
+        //     Mathf.Clamp(original.y, -WorldSize, WorldSize),
+        //     original.z);
     }
 }

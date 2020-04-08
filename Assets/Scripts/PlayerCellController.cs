@@ -31,10 +31,14 @@ public class PlayerCellController : MonoBehaviour
     
     private Vector3 ClampWorld(Vector3 original)
     {
-        return new Vector3(
-            Mathf.Clamp(original.x, -WorldSize, WorldSize),
-            Mathf.Clamp(original.y, -WorldSize, WorldSize),
-            original.z);
+        Vector3 copy = new Vector3(original.x, original.y, original.z);
+        copy.x = copy.x < -100 ? 100 : copy.x > 100 ? -100 : copy.x;
+        copy.y = copy.y < -100 ? 100 : copy.y > 100 ? -100 : copy.y;
+        return copy;
+        // return new Vector3(
+        //     Mathf.Clamp(original.x, -WorldSize, WorldSize),
+        //     Mathf.Clamp(original.y, -WorldSize, WorldSize),
+        //     original.z);
     }
 
     IEnumerator cellDeath()
