@@ -20,8 +20,10 @@ public class ShopMenu : MonoBehaviour
     {
         if (GameObject.Find("PlayerCellGraphics").GetComponent<EntityController>().getScore() >= 10)
         {
-            GameObject.Find("PlayerCellGraphics").GetComponent<EntityController>().reduceScore(10); 
-            GameObject.Find("PlayerCellGraphics").GetComponent<PlayerCellularOrganism>().setSpeed(GameObject.Find("PlayerCellGraphics").GetComponent<PlayerCellularOrganism>().getSpeed() * 1.2f);
+            GameObject co = GameObject.Find("PlayerCellGraphics");
+            co.GetComponent<EntityController>().reduceScore(10); 
+            co.GetComponent<PlayerCellularOrganism>().setSpeed(GameObject.Find("PlayerCellGraphics").GetComponent<PlayerCellularOrganism>().getSpeed() * 1.2f);
+            co.GetComponent<EntityController>().UpdateSpeedText();
         }
     }
 

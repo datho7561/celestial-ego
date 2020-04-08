@@ -10,8 +10,6 @@ public class PlayerCellController : MonoBehaviour
     public Text deathMessage;
     public Image deathOverlay;
 
-    private readonly float WorldSize = 100;
-
     void Update() {
         Vector3 Position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Position.z = transform.position.z;
@@ -22,6 +20,8 @@ public class PlayerCellController : MonoBehaviour
         }
         if (Random.value < 0.01) {
             transform.localScale -= new Vector3(1f * Time.deltaTime, 1f * Time.deltaTime, 1f * Time.deltaTime);
+            GetComponent<EntityController>().UpdateSpeedText();
+            GetComponent<EntityController>().UpdateSizeText();
         }
     }
 
@@ -35,10 +35,6 @@ public class PlayerCellController : MonoBehaviour
         copy.x = copy.x < -100 ? 100 : copy.x > 100 ? -100 : copy.x;
         copy.y = copy.y < -100 ? 100 : copy.y > 100 ? -100 : copy.y;
         return copy;
-        // return new Vector3(
-        //     Mathf.Clamp(original.x, -WorldSize, WorldSize),
-        //     Mathf.Clamp(original.y, -WorldSize, WorldSize),
-        //     original.z);
     }
 
     IEnumerator cellDeath()

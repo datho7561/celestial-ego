@@ -15,6 +15,8 @@ public class EntityController : MonoBehaviour
     private float CameraScale = 5f;
     public Text Letters;
     public Text ImmunityNumber;
+    public Text SizeText;
+    public Text SpeedText;
 
     private int Score = 0;
     private int ImmunityNum = 0;
@@ -40,12 +42,21 @@ public class EntityController : MonoBehaviour
         ImmunityNumber.text = "Immunity: " + ImmunityNum;
     }
 
+    public void UpdateSpeedText()
+    {
+        SpeedText.text = "Speed: " + GetComponent<PlayerCellularOrganism>().getSpeed();
+    }
+
+    public void UpdateSizeText()
+    {
+        SizeText.text = "Size: " + transform.localScale.x;
+    }
+
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == proteinTag) {
             transform.localScale += new Vector3(Increase, Increase, Increase);
             Destroy(other.gameObject);
             Score += GetComponent<ProteinPointBlob>().getProteinValue();
-            Letters.text = "Protein Currency: " + Score;
             Camera.main.orthographicSize += CameraScale*Increase;
         }
 
@@ -87,6 +98,11 @@ public class EntityController : MonoBehaviour
         {
             StartCoroutine(powerUpImmunityTimer(other));
         }
+
+        // Update the UI accordingly
+        Letters.text = "Protein Currency: " + Score;
+        UpdateSizeText();
+        UpdateSpeedText();
     }
 
     IEnumerator powerUpSpeedTimer(Collider player) {
