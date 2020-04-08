@@ -8,6 +8,7 @@ public class EntityController : MonoBehaviour
     private string proteinTag = "Protein";
     private string virusTag = "Virus";
     private string otherCellTag = "OtherCell";
+    private string extTag = "ExtremeTemp";
     private string speedTag = "SpeedBoost";
     private string immunityTag = "ImmunityBoost";
     private float Increase = 0.1f;
@@ -87,6 +88,14 @@ public class EntityController : MonoBehaviour
                 transform.localScale = new Vector3(newSize, newSize, newSize);
                 Camera.main.orthographicSize += CameraScale*Mathf.Pow(other.transform.localScale.x, 1 / 3f);
                 Destroy(other.gameObject);
+            }
+        }
+        if (other.gameObject.tag == extTag)
+        {
+            if (Random.Range(0,10)<1)
+            {
+                transform.localScale -= new Vector3(Decrease, Decrease, Decrease);
+                Camera.main.orthographicSize -= CameraScale * Decrease;
             }
         }
 
