@@ -72,7 +72,8 @@ public class EntityController : MonoBehaviour
             } else {
                 Score += otherData.Points;
                 //transform.localScale += new Vector3(Increase, Increase, Increase);
-                transform.localScale += new Vector3(Mathf.Pow(other.transform.localScale.x, 1 / 3f), Mathf.Pow(other.transform.localScale.y, 1 / 3f), Mathf.Pow(other.transform.localScale.z, 1 / 3f));
+                float newSize = Mathf.Pow(Mathf.Pow(transform.localScale.x, 3f) + Mathf.Pow(other.transform.localScale.x, 3f), 1 / 3f);
+                transform.localScale = new Vector3(newSize, newSize, newSize);
                 Camera.main.orthographicSize += CameraScale*Mathf.Pow(other.transform.localScale.x, 1 / 3f);
                 Destroy(other.gameObject);
             }
