@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Biome : MonoBehaviour
 {
-    public GameObject Temp;
+    public GameObject ExtremeTemp;
     private float damage = 0.1f;
 
     public float getDamage()
@@ -14,6 +14,6 @@ public class Biome : MonoBehaviour
 
     public GameObject getTemp()
     {
-        return Temp;
+        return ExtremeTemp;
     }
 }
