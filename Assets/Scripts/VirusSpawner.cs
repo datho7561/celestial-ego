@@ -22,8 +22,8 @@ public class VirusSpawner : MonoBehaviour
                 Target = candidateTargets[0];
             }
         } else {
-            int x = Random.Range(-50, 50);
-            int y = Random.Range(-50, 50);
+            int x = Random.Range(-100, 100);
+            int y = Random.Range(-100, 100);
             Vector3 Position = new Vector3(x, y, 0);
             Position.z = 0;
             GameObject vir = Instantiate(Virus, Position, Quaternion.identity);

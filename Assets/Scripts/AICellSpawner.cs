@@ -8,6 +8,8 @@ public class AICellSpawner : MonoBehaviour
     public GameObject AICell;
 
     void Start() {
+        for (int i = 0; i < 10; i++)
+            Generate();
         InvokeRepeating("Generate", 0, SpawnSpeed);
     }
 
