@@ -21,8 +21,9 @@ public class PlayerCellController : MonoBehaviour
         if (Random.value < 0.01) {
             float time = Time.deltaTime;
             transform.localScale -= new Vector3(1f * time, 1f * time, 1f * time);
-            CGetComponent<EntityController>().UpdateSpeedText();
-            GetComponent<EntityController>().UpdateSizeText();amera.main.orthographicSize -= time;
+            Camera.main.orthographicSize -= time;
+            GetComponent<EntityController>().UpdateSpeedText();
+            GetComponent<EntityController>().UpdateSizeText();
         }
     }
 
