@@ -19,9 +19,10 @@ public class PlayerCellController : MonoBehaviour
             StartCoroutine(cellDeath());
         }
         if (Random.value < 0.01) {
-            transform.localScale -= new Vector3(1f * Time.deltaTime, 1f * Time.deltaTime, 1f * Time.deltaTime);
-            GetComponent<EntityController>().UpdateSpeedText();
-            GetComponent<EntityController>().UpdateSizeText();
+            float time = Time.deltaTime;
+            transform.localScale -= new Vector3(1f * time, 1f * time, 1f * time);
+            CGetComponent<EntityController>().UpdateSpeedText();
+            GetComponent<EntityController>().UpdateSizeText();amera.main.orthographicSize -= time;
         }
     }
 

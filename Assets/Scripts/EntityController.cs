@@ -12,7 +12,7 @@ public class EntityController : MonoBehaviour
     private string immunityTag = "ImmunityBoost";
     private float Increase = 0.1f;
     private float Decrease = 0.5f;
-    private float CameraScale = 5f;
+    private float CameraScale = 1f;
     public Text Letters;
     public Text ImmunityNumber;
     public Text SizeText;
@@ -83,7 +83,8 @@ public class EntityController : MonoBehaviour
             } else {
                 Score += otherData.Points;
                 //transform.localScale += new Vector3(Increase, Increase, Increase);
-                transform.localScale += new Vector3(Mathf.Pow(other.transform.localScale.x, 1 / 3f), Mathf.Pow(other.transform.localScale.y, 1 / 3f), Mathf.Pow(other.transform.localScale.z, 1 / 3f));
+                float newSize = Mathf.Pow(Mathf.Pow(transform.localScale.x, 3f) + Mathf.Pow(other.transform.localScale.x, 3f), 1 / 3f);
+                transform.localScale = new Vector3(newSize, newSize, newSize);
                 Camera.main.orthographicSize += CameraScale*Mathf.Pow(other.transform.localScale.x, 1 / 3f);
                 Destroy(other.gameObject);
             }
