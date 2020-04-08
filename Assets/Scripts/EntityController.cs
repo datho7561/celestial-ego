@@ -92,13 +92,12 @@ public class EntityController : MonoBehaviour
         }
         if (other.gameObject.tag == extTag)
         {
-            if (Random.Range(0,10)<1)
+            if (Random.Range(0, 10) < 1)
             {
                 transform.localScale -= new Vector3(Decrease, Decrease, Decrease);
                 Camera.main.orthographicSize -= CameraScale * Decrease;
             }
         }
-
         if (other.gameObject.tag == speedTag)
         {
             StartCoroutine(powerUpSpeedTimer(other)); 

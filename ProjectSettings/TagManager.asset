@@ -10,6 +10,7 @@ TagManager:
   - OtherCell
   - SpeedBoost
   - ImmunityBoost
+  - ExtremeTemp
   layers:
   - Default
   - TransparentFX
